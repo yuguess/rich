@@ -1,6 +1,9 @@
-[package]
-name = "rich"
-version = "0.1.0"
-edition = "2024"
+# [package]
+# name = "rich"
+# version = "0.1.0"
+# edition = "2024"
 
-[dependencies]
+[workspace]
+members = ["rbe"]
+
+# [dependencies]

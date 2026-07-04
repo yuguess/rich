@@ -28,6 +28,18 @@ impl fmt::Display for Point2D {
     }
 }
 
+#[derive(Debug)]
+struct Complex {
+    real: f64,
+    imag: f64,
+}
+
+impl fmt::Display for Complex {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        let sign = if self.imag < 0.0 { "-" } else { "+" };
+        write!(f, "{} {} {}i", self.real, sign, self.imag.abs())
+    }
+}
 fn main() {
     let minmax = MinMax(0, 14);
 
@@ -50,4 +62,10 @@ fn main() {
     // were implemented, but `{:b}` requires `fmt::Binary` to be
     // implemented, which it hasn't been for `Point2D`.
     // println!("What does Point2D look like in binary: {:b}?", point);
+
+    let cplx1 = Complex { real: 3.3, imag: -7.2 };
+    let cplx2 = Complex { real: 3.3, imag: 3.2 };
+    println!("complex: {}", cplx1);
+    println!("complex: {}", cplx2);
+    // println!("complex debug: {:?}", complex);
 }
